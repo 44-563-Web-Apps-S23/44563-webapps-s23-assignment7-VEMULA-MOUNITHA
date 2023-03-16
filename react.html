@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <title>Mounitha React</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Indie+Flower&display=swap" rel="stylesheet">
+        
+        <style>
+            h1 {
+              color:steelblue;
+               font-family:'Times New Roman', Times, serif;
+               font-weight: bold;
+               padding: 5px;
+               margin-bottom: 5px;
+               text-shadow: 2px 2px plum;
+               
+            }
+            .menu {
+                background-color:antiquewhite;
+                color:lightcyan;
+                padding: 15px;
+                text-align: center;
+                width: 500px;
+                 margin-left: 300px;
+            }
+            #target {
+                background-color:tan;
+                font-family: "fantasy";
+                font-weight: 800;
+                font-size: 20px;
+                margin: 8px;
+            }
+            #counter {
+                background-color:peru;
+                font-family: "fantasy";
+                font-weight: 800;
+                font-size: 20px;
+                margin:8px;
+            }
+            button {
+                margin: 25px;
+            }
+        </style>
+    </head>
+    <body style="background-color:honeydew;">
+        <div class="container text-center">
+            <h1 style="margin-bottom: 5px;margin-top: 10px;">Mounitha Speed Check</h1>
+            <div class="row menu">
+                <div class="col-md">
+                    <p id="target">Your time</p>
+                </div>
+                <div class="col-md"> <p id="counter">Count</p></div>
+            </div>
+            <div class="container text-center">
+                <button class="btn btn-danger" type="submit" onclick="startTime()">Start Timer</button>
+                <button class="btn btn-warning" type="submit" onclick="recordTime()">React</button>
+            </div>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script>
+
+var reactTime = undefined
+
+function recordTime() 
+{
+  reactTime = Date.now()
+  console.log(reactTime)
+}
+
+function startTime() 
+{ 
+  for (let i = 0; i < 9; i++)
+   {
+      setTimeout ( function () { 
+          document.getElementById("counter").innerHTML = "Count " + i   
+      }, (8 - i) * 1000) 
+  }
+
+  setTimeout ( function () 
+  {
+      if (reactTime == undefined) 
+      {
+          document.getElementById("target").innerHTML = "Too slow"
+    }
+        else 
+        {
+            let endTime = Date.now()
+            let difference = endTime - reactTime
+            document.getElementById("target").innerHTML = "Time was " + difference
+        }
+    }, 8000)
+}
+
+
+      </script>
+    </body>
+</html>
+            
