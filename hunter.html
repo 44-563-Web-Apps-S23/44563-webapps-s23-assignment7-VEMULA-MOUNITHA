@@ -71,6 +71,7 @@
         <div id="penalty" class="col-sm menu-item score"> Penalty is zero</div>
         <div id="help" onclick="help()" class="col-sm menu-item help">Click for help</div>
         <div id="help" class="col-sm menu-item help">Help report</div>
+        <button onclick="reset()" type="submit" class="btn btn-link">random</button>
     </div>
     <br>
     <div class="row">
@@ -133,14 +134,12 @@
             document.getElementById(ids[position]).src = "mouse.png";
             gameOver = true;
             penalty -= 3;
-            document.getElementById("penalty").innerHTML = "Penalty is " + penalty;
         }
         else if (position == catLocation) 
         {
             document.getElementById(ids[position]).src = "cat.jpg";
             gameOver = true;
             penalty += 4;
-            document.getElementById("penalty").innerHTML = "Penalty is " + penalty
         }
         else 
         {
@@ -176,12 +175,24 @@
         document.getElementById("penalty").innerHTML = "Penalty is " + penalty
     }
 
-</script>
-</body>
-</html>
+    function reset()
+    {
+            
+            document.getElementById("bushes").innerHTML = "Number of bushes checked is "+ 0
+            document.getElementById("penalty").innerHTML = "penalty is "+ 0
+            mouseLocation = Math.floor(Math.random() * 24)
+            catLocation = Math.floor(Math.random() * 24)
+            if(cat_location == 13){
+                reset()
+            }
+            if(mouseLocation==21)
+            {
+                reset()
+            }
+    }
+
+          
 
 </script>
-
-
 </body>
 </html>

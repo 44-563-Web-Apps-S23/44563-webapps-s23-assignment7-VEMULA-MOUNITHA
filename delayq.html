@@ -84,7 +84,7 @@
           <button class="btn btn-primary" onclick="promotion()">Promote</button>
         </div>
       </div>
-    </body>
+    
     <script>
     function makeNewDiv() 
     {
@@ -118,7 +118,22 @@
       }
     }
 
+    function promotion(){
+        let queueItems = document.getElementsByClassName("delayq")
+        let le=queueItems.length;
+        
+        let rand=Math.floor(Math.random()*le);
+        console.log(rand);
+        removed_Items=queueItems[rand];
+        console.log(removed_Items);
+        console.log(removed_Items.innerHTML);
+        queueItems[rand].remove();
+        let container = document.getElementById('target')
+	    container.insertBefore(removed_Items,container.firstChild)
+    }  
+
    
   </script>
+  </body>
 </html>
    
